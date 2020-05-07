@@ -1,20 +1,62 @@
 <?xml version="1.0"?>
-<robot name="turtlebot3_burger_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="omniturtle" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name="laser_visual" default="false"/>
   <xacro:arg name="imu_visual"   default="false"/>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/omniturtle</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
 
   <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
+  <!-- RF Wheel -->
   <gazebo reference="wheel_rf">
     <mu1>0.1</mu1>
     <mu2>0.1</mu2>
     <kp>500000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
-    <fdir1>1 0 0</fdir1>
+    <selfCollide>false</selfCollide>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <!-- LF Wheel -->
+  <gazebo reference="wheel_lf">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <selfCollide>false</selfCollide>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <!-- RB Wheel -->
+  <gazebo reference="wheel_rb">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <selfCollide>false</selfCollide>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <!-- LB Wheel -->
+  <gazebo reference="wheel_lb">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <selfCollide>false</selfCollide>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
 
