@@ -9,22 +9,22 @@ omniturtle:
   wheel_rf_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: wheel_rf_joint
-    pid: {p: 1.0, i: 0.01, d: 0.1}
+    pid: {p: 1.0, i: 0.001, d: 0.5}
 
   wheel_lf_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: wheel_lf_joint
-    pid: {p: 1.0, i: 0.01, d: 0.1}
+    pid: {p: 1.0, i: 0.001, d: 0.5}
 
   wheel_rb_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: wheel_rb_joint
-    pid: {p: 1.0, i: 0.01, d: 0.1}
+    pid: {p: 1.0, i: 0.001, d: 0.5}
 
   wheel_lb_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: wheel_lb_joint
-    pid: {p: 1.0, i: 0.01, d: 0.1}
+    pid: {p: 1.0, i: 0.001, d: 0.5}
 
 
 
