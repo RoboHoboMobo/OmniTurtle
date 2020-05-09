@@ -62,12 +62,12 @@
   <!-- Transmission macro -->
   <xacro:macro name="transmiss" params="suffix">
     <!-- Wheel transmission -->
-    <transmission name="wheel_${suffix}_trans">
+    <transmission name="mecanum_${suffix}_trans">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="wheel_${suffix}_joint">
+      <joint name="mecanum_${suffix}_joint">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
-      <actuator name="wheel_${suffix}_motor">
+      <actuator name="mecanum_${suffix}_motor">
         <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
@@ -76,10 +76,10 @@
   </xacro:macro>
 
   <!-- Add transmissions -->
-  <!-- xacro:transmiss suffix="rf"/ -->
-  <!-- xacro:transmiss suffix="lf"/ -->  
-  <!-- xacro:transmiss suffix="rb"/ -->  
-  <!-- xacro:transmiss suffix="lb"/ -->  
+  <xacro:transmiss suffix="rf"/>
+  <xacro:transmiss suffix="lf"/>  
+  <xacro:transmiss suffix="rb"/>  
+  <xacro:transmiss suffix="lb"/>  
 
 
   <!-- Sensors block -->
