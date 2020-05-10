@@ -24,17 +24,17 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(omniturtle_keyboard_node src/keyboard_controller.cpp src/mecanum_solver.cpp)
+add_executable(omniturtle_keyboard_node src/keyboard_controller.cpp)
 target_link_libraries(omniturtle_keyboard_node
   ${catkin_LIBRARIES}
   ${CURSES_LIBRARIES}
 )
 add_dependencies(omniturtle_keyboard_node ${catkin_EXPORTED_TARGETS})
 
-#add_executable(casterbot_manager src/casterbot_manager.cpp src/caster_solver.cpp)
-#target_link_libraries(casterbot_manager
-#   ${catkin_LIBRARIES}
-#)
+add_executable(omniturtle_manager src/manager.cpp src/mecanum_solver.cpp)
+target_link_libraries(omniturtle_manager
+   ${catkin_LIBRARIES}
+)
 
 
 

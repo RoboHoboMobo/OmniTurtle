@@ -9,22 +9,22 @@ omniturtle:
   mecanum_rf_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: mecanum_rf_joint
-    pid: {p: 1.0, i: 0.001, d: 0.5}
+    pid: {p: 50.0, i: 0.001, d: 7.0}
 
   mecanum_lf_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: mecanum_lf_joint
-    pid: {p: 1.0, i: 0.001, d: 0.5}
+    pid: {p: 50.0, i: 0.001, d: 7.0}
 
   mecanum_rb_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: mecanum_rb_joint
-    pid: {p: 1.0, i: 0.001, d: 0.5}
+    pid: {p: 50.0, i: 0.001, d: 7.0}
 
   mecanum_lb_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: mecanum_lb_joint
-    pid: {p: 1.0, i: 0.001, d: 0.5}
+    pid: {p: 50.0, i: 0.001, d: 7.0}
 
 
 

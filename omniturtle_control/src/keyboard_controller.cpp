@@ -1,7 +1,7 @@
 #include"../include/keyboard_controller.h"
 
 OmniTurtle::KeyboardController::KeyboardController(ros::NodeHandle& node,
-                                                std::string pub_topic_name) :
+                                                const std::string &pub_topic_name) :
                              n(&node), keyboard_pub(), ctrl_msg(), is_running(true)
 {
   if(&node == nullptr)
@@ -135,10 +135,10 @@ void OmniTurtle::KeyboardController::quit() const
 
 int main(int argc, char** argv)
 {
-  ros::init(argc,argv,"obot_keyboard_control");
+  ros::init(argc,argv,"omniturtle_control");
   ros::NodeHandle n;
 
-  OmniTurtle::KeyboardController kc(n, "obot_keyboard_control");
+  OmniTurtle::KeyboardController kc(n, "omniturtle_control");
   ros::Rate rate(200); //Hz
   while(ros::ok() && kc.isRunning())
   {

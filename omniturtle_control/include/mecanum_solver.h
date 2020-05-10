@@ -14,8 +14,9 @@ namespace OmniTurtle
                                                                                          // mecanum_lf_joint
                                                                                          // mecanum_rb_joint
                                                                                          // mecanum_lb_joint
-
   public:
+    static const int JOINT_NUM = 4;
+
     const sensor_msgs::JointState
     moveForward(const sensor_msgs::JointState& jsm, double delta) const override;
 
@@ -49,7 +50,6 @@ namespace OmniTurtle
     const sensor_msgs::JointState
     stop(const sensor_msgs::JointState& jsm, double delta) const override;
 
-    static const int JOINT_NUM = 4;
   };
 
 }

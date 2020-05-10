@@ -4,13 +4,15 @@
   <!-- Roller link macro -->
   <xacro:macro name="roller_gazebo" params="num suffix">
     <gazebo reference="roller_${num}_${suffix}">
-      <mu1>0.1</mu1>
-      <mu2>0.1</mu2>
-      <kp>500000.0</kp>
+
+      <mu1>0.5</mu1>
+      <mu2>0.5</mu2>
+      <kp>1000000.0</kp>
       <kd>10.0</kd>
       <minDepth>0.001</minDepth>
       <maxVel>0.1</maxVel>
       <fdir1>1 0 0</fdir1>
+
       <material>Gazebo/FlatBlack</material>
     </gazebo>
   </xacro:macro>

@@ -25,7 +25,7 @@ namespace OmniTurtle
     geometry_msgs::Twist ctrl_msg;
     bool is_running;
   public:
-    KeyboardController(ros::NodeHandle& node, std::string pub_topic_name);
+    KeyboardController(ros::NodeHandle& node, const std::string& pub_topic_name);
     void getInput() override;
     void sendMessage() const override;
     bool isRunning() const { return is_running; }
