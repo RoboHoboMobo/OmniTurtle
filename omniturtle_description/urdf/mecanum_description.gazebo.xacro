@@ -30,6 +30,10 @@
   <xacro:roller_gazebo num="6" suffix="rf"/>
   <xacro:roller_gazebo num="7" suffix="rf"/>
   <xacro:roller_gazebo num="8" suffix="rf"/>
+  <xacro:roller_gazebo num="9" suffix="rf"/>
+  <xacro:roller_gazebo num="10" suffix="rf"/>
+  <xacro:roller_gazebo num="11" suffix="rf"/>
+  <xacro:roller_gazebo num="12" suffix="rf"/>
 
   <xacro:inner_part_gazebo suffix="lf"/>
   <xacro:roller_gazebo num="1" suffix="lf"/>
@@ -40,6 +44,10 @@
   <xacro:roller_gazebo num="6" suffix="lf"/>
   <xacro:roller_gazebo num="7" suffix="lf"/>
   <xacro:roller_gazebo num="8" suffix="lf"/>
+  <xacro:roller_gazebo num="9" suffix="lf"/>
+  <xacro:roller_gazebo num="10" suffix="lf"/>
+  <xacro:roller_gazebo num="11" suffix="lf"/>
+  <xacro:roller_gazebo num="12" suffix="lf"/>
 
   <xacro:inner_part_gazebo suffix="rb"/>
   <xacro:roller_gazebo num="1" suffix="rb"/>
@@ -50,6 +58,10 @@
   <xacro:roller_gazebo num="6" suffix="rb"/>
   <xacro:roller_gazebo num="7" suffix="rb"/>
   <xacro:roller_gazebo num="8" suffix="rb"/>
+  <xacro:roller_gazebo num="9" suffix="rb"/>
+  <xacro:roller_gazebo num="10" suffix="rb"/>
+  <xacro:roller_gazebo num="11" suffix="rb"/>
+  <xacro:roller_gazebo num="12" suffix="rb"/>
 
   <xacro:inner_part_gazebo suffix="lb"/>
   <xacro:roller_gazebo num="1" suffix="lb"/>
@@ -60,6 +72,10 @@
   <xacro:roller_gazebo num="6" suffix="lb"/>
   <xacro:roller_gazebo num="7" suffix="lb"/>
   <xacro:roller_gazebo num="8" suffix="lb"/>
+  <xacro:roller_gazebo num="9" suffix="lb"/>
+  <xacro:roller_gazebo num="10" suffix="lb"/>
+  <xacro:roller_gazebo num="11" suffix="lb"/>
+  <xacro:roller_gazebo num="12" suffix="lb"/>
 
 
 

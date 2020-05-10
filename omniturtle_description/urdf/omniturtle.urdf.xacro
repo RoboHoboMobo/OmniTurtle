@@ -46,9 +46,9 @@
   </link>
 
   <xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="rf" right="1"   front="1"/>
-  <!-- xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="lf" right="-1"   front="1"/-->
-  <!-- xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="rb" right="1"   front="-1"/-->
-  <!-- xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="lb" right="-1"   front="-1"/-->
+  <xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="lf" right="-1"   front="1"/>
+  <xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="rb" right="1"   front="-1"/>
+  <xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="lb" right="-1"   front="-1"/>
 
   <!-- Transmission macro -->
   <xacro:macro name="transmiss" params="suffix">
