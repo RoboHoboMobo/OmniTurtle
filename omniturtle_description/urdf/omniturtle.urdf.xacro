@@ -11,15 +11,6 @@
   <xacro:property name="b_diam" value="0.13755" />    <!-- base diameter -->
   <xacro:property name="b_height" value="0.14413" />  <!-- base height -->
 
-  <!--Mecanum wheel propertires-->
-  <xacro:property name="mw_m" value="0.1"/>   <!-- mecanum's mass -->
-  <xacro:property name="mw_d" value="0.034"/> <!-- mecanum's diameter (whole) -->
-  <xacro:property name="mw_w" value="0.012"/> <!-- mecanum's width -->
-  <xacro:property name="r_num" value="8"/>    <!-- rollers number -->
-  <xacro:property name="c_c" value="0.9"/>    <!-- coverage coefficient -->
-  <xacro:property name="r_d" value="0.0095"/> <!-- roller's diameter -->
-  <xacro:property name="r_w" value="0.005"/>  <!-- roller's width -->
-
   <!-- Links & Joints block -->
   <link name="base_footprint"/>
 
@@ -55,9 +46,9 @@
   </link>
 
   <xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="rf" right="1"   front="1"/>
-  <xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="lf" right="-1"   front="1"/>
-  <xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="rb" right="1"   front="-1"/>
-  <xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="lb" right="-1"   front="-1"/>
+  <!-- xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="lf" right="-1"   front="1"/-->
+  <!-- xacro:mecanum_wheel2 base_name="base_link" base_diam="b_diam" suffix="rb" right="1"   front="-1"/-->
+  <!-- xacro:mecanum_wheel1 base_name="base_link" base_diam="b_diam" suffix="lb" right="-1"   front="-1"/-->
 
   <!-- Transmission macro -->
   <xacro:macro name="transmiss" params="suffix">
