@@ -10,6 +10,8 @@
 #include"std_msgs/Int32.h"
 #include"std_msgs/Float64.h"
 
+#include "ros/callback_queue.h"
+
 namespace OmniTurtle
 {
   class OmniTurtleManager
@@ -43,23 +45,25 @@ namespace OmniTurtle
 
     void sendMessage(const sensor_msgs::JointState& jsm);
 
-    double delta;
     bool is_running;
+    double freq;
+
+    void moveForward(double);
+    void moveBackward(double);
+    void moveRight(double);
+    void moveLeft(double);
+    void moveDiagRightUp(double);
+    void moveDiagLeftUp(double);
+    void moveDiagRightDown(double);
+    void moveDiagLeftDown(double);
+    void turnAroundClockwise(double);
+    void turnAroundAnticlockwise(double);
+    void stop();
 
   public:
-    OmniTurtleManager(ros::NodeHandle& node, const std::string& sub_topic_name,
-                        const MecanumSolver& ms);
-    virtual void moveForward();
-    virtual void moveBackward();
-    virtual void moveRight();
-    virtual void moveLeft();
-    virtual void moveDiagRightUp();
-    virtual void moveDiagLeftUp();
-    virtual void moveDiagRightDown();
-    virtual void moveDiagLeftDown();
-    virtual void turnAroundClockwise();
-    virtual void turnAroundAnticlockwise();
-    virtual void stop();
+    OmniTurtleManager();
+    void launch(ros::NodeHandle& node, const std::string& sub_topic_name,
+                const MecanumSolver& ms);
 
     bool isRunning() const { return is_running; }
 

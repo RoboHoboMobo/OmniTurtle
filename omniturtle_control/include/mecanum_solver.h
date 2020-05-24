@@ -9,7 +9,7 @@ namespace OmniTurtle
   class MecanumSolver : public Solver
   {
   private:
-    static constexpr double WHEEL_DIAMETER = 34.0; // in mm
+    static constexpr double WHEEL_DIAMETER = 60.0; // in mm
     size_t find_joint(const sensor_msgs::JointState &jsm, std::string joint_name) const; // mecanum_rf_joint
                                                                                          // mecanum_lf_joint
                                                                                          // mecanum_rb_joint

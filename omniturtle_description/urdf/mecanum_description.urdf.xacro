@@ -7,8 +7,8 @@
   <xacro:property name="mw_w" value="0.034"/> <!-- mecanum's width -->
   <xacro:property name="r_num" value="8"/>    <!-- rollers number -->
   <xacro:property name="c_c" value="1.5"/>    <!-- coverage coefficient -->
-  <xacro:property name="r_d" value="0.010"/> <!-- roller's diameter -->
-  <xacro:property name="r_w" value="0.022"/>  <!-- roller's width -->
+  <xacro:property name="r_d" value="0.010"/> <!-- roller's diameter 20 -->
+  <xacro:property name="r_w" value="0.030"/>  <!-- roller's width 22 -->
 
   <!-- Roller link macro -->
   <xacro:macro name="roller" params="num suffix">
@@ -26,7 +26,8 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-	  <cylinder radius="${r_d/2}" length="${r_w}"/>
+	  <!-- cylinder radius="${r_d/2}" length="${r_w}"/ -->
+          <mesh filename="package://omniturtle_description/meshes/wheels/roller_7_step.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
 

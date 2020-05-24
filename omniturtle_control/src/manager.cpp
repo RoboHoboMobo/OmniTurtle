@@ -1,11 +1,17 @@
 #include"../include/manager.h"
 
-OmniTurtle::OmniTurtleManager::OmniTurtleManager(ros::NodeHandle& node,
-                              const std::string& sub_topic_name,
-                              const MecanumSolver& ms) :
-                              n(&node), msp(&ms), delta(10.0),
-                              is_running(true)
+OmniTurtle::OmniTurtleManager::OmniTurtleManager()
+  : is_running(true), freq(10.0)
 {
+}
+
+void OmniTurtle::OmniTurtleManager::launch(ros::NodeHandle &node,
+                                      const std::string &sub_topic_name,
+                                      const MecanumSolver &ms)
+{
+  n = &node;
+  msp = &ms;
+
   ctrl_sub = n->subscribe(sub_topic_name, 1, &OmniTurtle::OmniTurtleManager::controlCallback, this);
   mecanum_rf_jnt_sub = n->subscribe("/omniturtle/mecanum_rf_joint_position_controller/state", 1,
                                     &OmniTurtle::OmniTurtleManager::mecanumRFCallback, this);
@@ -38,34 +44,34 @@ void OmniTurtle::OmniTurtleManager::controlCallback(const geometry_msgs::Twist &
                                   std::to_string(cur_jnt_state.name.size()));
 
   if(msg.linear.x>0 && msg.linear.y==0 && msg.angular.z==0)
-    moveForward();
+    moveForward(msg.linear.x / freq * 1000.0); // velocity [m/s] -> distance [mm]
 
   if(msg.linear.x<0 && msg.linear.y==0 && msg.angular.z==0)
-    moveBackward();
+    moveBackward(-msg.linear.x / freq * 1000.0);
 
   if(msg.linear.x==0 && msg.linear.y>0 && msg.angular.z==0)
-    moveLeft();
+    moveLeft(msg.linear.y / freq * 1000.0);
 
   if(msg.linear.x==0 && msg.linear.y<0 && msg.angular.z==0)
-    moveRight();
+    moveRight(-msg.linear.y / freq * 1000.0);
 
   if(msg.linear.x>0 && msg.linear.y<0 && msg.angular.z==0)
-    moveDiagRightUp();
+    moveDiagRightUp(msg.linear.x / freq * 1000.0);
 
   if(msg.linear.x>0 && msg.linear.y>0 && msg.angular.z==0)
-    moveDiagLeftUp();
+    moveDiagLeftUp(msg.linear.x / freq * 1000.0);
 
   if(msg.linear.x<0 && msg.linear.y<0 && msg.angular.z==0)
-    moveDiagRightDown();
+    moveDiagRightDown(-msg.linear.x / freq * 1000.0);
 
   if(msg.linear.x<0 && msg.linear.y>0 && msg.angular.z==0)
-    moveDiagLeftDown();
+    moveDiagLeftDown(-msg.linear.x / freq * 1000.0);
 
   if(msg.linear.x==0 && msg.linear.y==0 && msg.angular.z>0)
-    turnAroundAnticlockwise();
+    turnAroundAnticlockwise(msg.angular.z / freq * 1000.0);
 
   if(msg.linear.x==0 && msg.linear.y==0 && msg.angular.z<0)
-    turnAroundClockwise();
+    turnAroundClockwise(-msg.angular.z / freq * 1000.0);
 
   if(msg.linear.x==0 && msg.linear.y==0 && msg.angular.z==0)
     stop();
@@ -128,59 +134,59 @@ void OmniTurtle::OmniTurtleManager::sendMessage(const sensor_msgs::JointState &j
 
 }
 
-void OmniTurtle::OmniTurtleManager::moveForward()
+void OmniTurtle::OmniTurtleManager::moveForward(double delta)
 {
   sendMessage(msp->moveForward(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveBackward()
+void OmniTurtle::OmniTurtleManager::moveBackward(double delta)
 {
   sendMessage(msp->moveBackward(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveRight()
+void OmniTurtle::OmniTurtleManager::moveRight(double delta)
 {
   sendMessage(msp->moveRight(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveLeft()
+void OmniTurtle::OmniTurtleManager::moveLeft(double delta)
 {
   sendMessage(msp->moveLeft(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveDiagRightUp()
+void OmniTurtle::OmniTurtleManager::moveDiagRightUp(double delta)
 {
   sendMessage(msp->moveDiagRightUp(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveDiagLeftUp()
+void OmniTurtle::OmniTurtleManager::moveDiagLeftUp(double delta)
 {
   sendMessage(msp->moveDiagLeftUp(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveDiagRightDown()
+void OmniTurtle::OmniTurtleManager::moveDiagRightDown(double delta)
 {
   sendMessage(msp->moveDiagRightDown(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::moveDiagLeftDown()
+void OmniTurtle::OmniTurtleManager::moveDiagLeftDown(double delta)
 {
   sendMessage(msp->moveDiagLeftDown(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::turnAroundClockwise()
+void OmniTurtle::OmniTurtleManager::turnAroundClockwise(double delta)
 {
   sendMessage(msp->turnAroundClockwise(cur_jnt_state, delta));
 }
 
-void OmniTurtle::OmniTurtleManager::turnAroundAnticlockwise()
+void OmniTurtle::OmniTurtleManager::turnAroundAnticlockwise(double delta)
 {
   sendMessage(msp->turnAroundAnticlockwise(cur_jnt_state, delta));
 }
 
 void OmniTurtle::OmniTurtleManager::stop()
 {
-  sendMessage(msp->stop(cur_jnt_state, delta));
+  sendMessage(msp->stop(cur_jnt_state, 0.0));
 }
 
 int main(int argc, char** argv)
@@ -188,9 +194,11 @@ int main(int argc, char** argv)
   ros::init(argc,argv,"omniturtle_manager");
   ros::NodeHandle n;
 
-  OmniTurtle::OmniTurtleManager otm(n, "/omniturtle_control", OmniTurtle::MecanumSolver());
+  OmniTurtle::OmniTurtleManager otm;
+  otm.launch(n, "/omniturtle_control", OmniTurtle::MecanumSolver());
 
   ros::spin();
+
 
   return 0;
 }

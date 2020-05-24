@@ -24,6 +24,8 @@ namespace OmniTurtle
     ros::Publisher keyboard_pub;
     geometry_msgs::Twist ctrl_msg;
     bool is_running;
+    double velocity;
+
   public:
     KeyboardController(ros::NodeHandle& node, const std::string& pub_topic_name);
     void getInput() override;
@@ -65,7 +67,9 @@ namespace OmniTurtle
       SPACE = 32,
       ESC   = 27,
       ENTER = 10,
-      CTRLC = 3
+      CTRLC = 3,
+      PLUS  = 43,
+      MINUS = 45
     };
   };
 }
