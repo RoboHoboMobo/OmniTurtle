@@ -8,15 +8,15 @@ Package provides operable model of TurtleBot3 by ROBOTIS with Mecanum wheels in 
 
 - Mecaum wheels with 8 rollers are desined:
 
- <img src="https://github.com/VasilyevGeorgy/test/blob/master/pics/mecanum_bare_rviz.png" width="40%"/>  
+ <img src="https://github.com/RoboHoboMobo/OmniTurtle/blob/master/omniturtle_description/pics/mecanum_bare_rviz.png" width="40%"/>  
  
 - TurtleBot3 Burger model with 4 Mecanum wheels is desined:
 
- <img src="https://github.com/VasilyevGeorgy/test/blob/master/pics/burger.png" width="40%"/>  
+ <img src="https://github.com/RoboHoboMobo/OmniTurtle/blob/master/omniturtle_description/pics/burger.png" width="40%"/>  
  
 - Simple keyboard teleoperation console node is implemented:
 
- <img src="https://github.com/VasilyevGeorgy/test/blob/master/pics/keyboard_node.png" width="40%"/>  
+ <img src="https://github.com/RoboHoboMobo/OmniTurtle/blob/master/omniturtle_description/pics/keyboard_node.png" width="40%"/>  
 
 <!-- ## References
 
