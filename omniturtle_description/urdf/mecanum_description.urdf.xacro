@@ -17,6 +17,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
 	  <cylinder radius="0" length="${r_w}"/>
+          <!-- mesh filename="package://omniturtle_description/meshes/wheels/roller_7_step.stl" scale="0.001 0.001 0.001"/ -->
         </geometry>
         <material name="black">
           <color rgba="0 0 0 1"/>
@@ -177,7 +178,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry>
-	  <!-- cylinder radius="${(mw_d - 2*r_d)/2}" length="${mw_w}"/-->
+	  <!-- cylinder radius="${(mw_d - 2*r_d)/2}" length="${mw_w}"/ -->
           <mesh filename="package://omniturtle_description/meshes/wheels/mecanum2.stl" scale="0.001 0.001 0.001"/>
 	</geometry>
         <material name="gray">
