@@ -17,7 +17,7 @@ namespace OmniTurtle
   class OmniTurtleManager
   {
   private:
-    ros::NodeHandle* n;
+    ros::NodeHandle n;
     const MecanumSolver* msp;
 
     // Subscribers section

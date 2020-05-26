@@ -9,20 +9,20 @@ void OmniTurtle::OmniTurtleManager::launch(ros::NodeHandle &node,
                                       const std::string &sub_topic_name,
                                       const MecanumSolver &ms)
 {
-  n = &node;
+  n = node;
   msp = &ms;
 
-  ctrl_sub = n->subscribe(sub_topic_name, 1, &OmniTurtle::OmniTurtleManager::controlCallback, this);
-  mecanum_rf_jnt_sub = n->subscribe("/omniturtle/mecanum_rf_joint_position_controller/state", 1,
+  ctrl_sub = n.subscribe(sub_topic_name, 1, &OmniTurtle::OmniTurtleManager::controlCallback, this);
+  mecanum_rf_jnt_sub = n.subscribe("/omniturtle/mecanum_rf_joint_position_controller/state", 1,
                                     &OmniTurtle::OmniTurtleManager::mecanumRFCallback, this);
 
-  mecanum_lf_jnt_sub = n->subscribe("/omniturtle/mecanum_lf_joint_position_controller/state", 1,
+  mecanum_lf_jnt_sub = n.subscribe("/omniturtle/mecanum_lf_joint_position_controller/state", 1,
                                     &OmniTurtle::OmniTurtleManager::mecanumLFCallback, this);
 
-  mecanum_rb_jnt_sub = n->subscribe("/omniturtle/mecanum_rb_joint_position_controller/state", 1,
+  mecanum_rb_jnt_sub = n.subscribe("/omniturtle/mecanum_rb_joint_position_controller/state", 1,
                                     &OmniTurtle::OmniTurtleManager::mecanumRBCallback, this);
 
-  mecanum_lb_jnt_sub = n->subscribe("/omniturtle/mecanum_lb_joint_position_controller/state", 1,
+  mecanum_lb_jnt_sub = n.subscribe("/omniturtle/mecanum_lb_joint_position_controller/state", 1,
                                     &OmniTurtle::OmniTurtleManager::mecanumLBCallback, this);
 
   cur_jnt_state.name.push_back("mecanum_rf_joint");
@@ -31,10 +31,10 @@ void OmniTurtle::OmniTurtleManager::launch(ros::NodeHandle &node,
   cur_jnt_state.name.push_back("mecanum_lb_joint");
   cur_jnt_state.position.resize(4, 0.0);
 
-  mecanum_rf_jnt_pub = n->advertise<std_msgs::Float64>("/omniturtle/mecanum_rf_joint_position_controller/command", 1);
-  mecanum_lf_jnt_pub = n->advertise<std_msgs::Float64>("/omniturtle/mecanum_lf_joint_position_controller/command", 1);
-  mecanum_rb_jnt_pub = n->advertise<std_msgs::Float64>("/omniturtle/mecanum_rb_joint_position_controller/command", 1);
-  mecanum_lb_jnt_pub = n->advertise<std_msgs::Float64>("/omniturtle/mecanum_lb_joint_position_controller/command", 1);
+  mecanum_rf_jnt_pub = n.advertise<std_msgs::Float64>("/omniturtle/mecanum_rf_joint_position_controller/command", 1);
+  mecanum_lf_jnt_pub = n.advertise<std_msgs::Float64>("/omniturtle/mecanum_lf_joint_position_controller/command", 1);
+  mecanum_rb_jnt_pub = n.advertise<std_msgs::Float64>("/omniturtle/mecanum_rb_joint_position_controller/command", 1);
+  mecanum_lb_jnt_pub = n.advertise<std_msgs::Float64>("/omniturtle/mecanum_lb_joint_position_controller/command", 1);
 }
 
 void OmniTurtle::OmniTurtleManager::controlCallback(const geometry_msgs::Twist &msg)
