@@ -35,10 +35,11 @@ We used following resources:
 Also, controller packages must be installed used following commands:
 
 ```bash
-sudo apt-get install ros-kinetic-joint-state-controller
-sudo apt-get install ros-kinetic-position-controllers
-sudo apt-get install ros-kinetic-gazebo-ros-control
-sudo apt-get install ros-kinetic-controller-manager
+sudo apt install ros-kinetic-joint-state-controller
+sudo apt install ros-kinetic-position-controllers
+sudo apt install ros-kinetic-gazebo-ros-control
+sudo apt install ros-kinetic-controller-manager
+sudo apt install ros-kinetic-effort-controllers
 ```
 
 ## Usage
