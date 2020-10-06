@@ -26,7 +26,7 @@ Check the [paper](https://gitlab.com/LIRS_Projects/Simulation-fiducial-markers-e
 
 This repo is designed and tested on **Ubuntu 16.04** with **ROS Kinetic**.
 
-We used following resources:
+Following resources were used:
 
 - **Original model of ROBOTIS TurtleBot3** : *turtlebot3_simulations package* [ [Git](https://github.com/ROBOTIS-GIT/turtlebot3_simulations) ]
 - **NEXUS ROBOT Mecanum wheel as prototype** : *link to online-store* [ [URL](https://www.nexusrobot.com/product/a-set-of-60mm-lego-compatible-mecanum-wheels-4-piecesbearing-rollers-14144.html) ]
