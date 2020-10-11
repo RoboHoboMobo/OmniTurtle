@@ -1,8 +1,8 @@
 #ifndef MECANUM_SOLVER_H
 #define MECANUM_SOLVER_H
 
-#include"solver.h"
-#include<string>
+#include "solver.h"
+#include <string>
 
 namespace OmniTurtle
 {
